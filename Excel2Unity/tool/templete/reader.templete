@@ -1,0 +1,7 @@
+#tab#public partial class #classname#DataReader : BaseReader<#classname#>
+#tab#{
+#tab#	public #classname#DataReader()
+#tab#	{
+#tab#		Load("#classname#");
+#tab#	}
+#tab#}

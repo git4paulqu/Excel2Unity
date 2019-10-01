@@ -1,0 +1,16 @@
+{
+	"nameSpace": "DataTable",
+	"excel": {
+		"summaryIndex": 0,
+		"propertyIndex": 1,
+		"typeIndex": 2,
+		"splitFlag0": ";",
+		"splitFlag1": "|",
+		"ignoreFlag": "@"
+	},
+	"path": {
+		"excelSourcePath": ["E:/projects/csharp/Excel2Unity/Resources/excel/client", "E:/projects/csharp/Excel2Unity/Resources/excel/server"],
+		"outputCSPath": "E:/projects/csharp/Excel2Unity/Example/UnityProject/Assets/Scripts/DataTable/Gen",
+		"outputBinPath": "E:/projects/csharp/Excel2Unity/Example/UnityProject/Assets/Resources/Data"
+	}
+}

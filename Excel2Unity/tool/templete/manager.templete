@@ -1,0 +1,7 @@
+#tab#public partial class DataTableManager
+#tab#{
+#tab#	partial void Register()
+#tab#	{
+#Register#
+#tab#	}
+#tab#}
