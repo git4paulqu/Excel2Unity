@@ -7,8 +7,8 @@
 | float              |    float |
 | bool               |     bool |
 | string             |   string |
-| Vector2            |  Vector2 |
-| Vector3            |  Vector3 |
+| Vector2            |  vector2 |
+| Vector3            |  vector3 |
 | Color              |    color |
 | List<T>            |      [T] |
 | Dictionary<T1, T2> | [T1, T2] |
