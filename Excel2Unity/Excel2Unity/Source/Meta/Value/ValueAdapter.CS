@@ -44,7 +44,7 @@ namespace Excel2Unity.Source.Meta.Value
             }
             catch (Exception e)
             {
-                throw new Exception(string.Format("parse value error, type is {0}, value is {1}, error is {2}", type.GetName(), value, e));
+                throw new Exception(string.Format("parse value error, type is {0}, value is {1}, error is: {2}", type.GetName(), value, e.Message));
             }
         }
     }

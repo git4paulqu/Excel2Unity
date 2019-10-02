@@ -23,6 +23,8 @@ namespace Excel2Unity.Source.CSharp
         private void InternalConstruction(Excel.ExcelData excelData)
         {
             System.Data.DataTable data = excelData.data;
+            CheckSourceData(data);
+
             DataRowCollection rows = data.Rows;
 
             int dataStartIndex = Define.UserDefine.global.excel.startIndex;
@@ -47,7 +49,8 @@ namespace Excel2Unity.Source.CSharp
             for (int i = dataStartIndex; i < rows.Count; i++)
             {
                 List<string> originalData = FiterRowData(rows[i], columnCount, ignoreIndexs, string.Format("Data Row:{0}", i));
-                CSObjectData objectData = new CSObjectData(originalData);
+                CSObjectData objectData = new CSObjectData(originalData, i);
+                CheckObjectKey(objectData, i);
                 objectDatas.Add(objectData);
             }
         }
@@ -76,6 +79,43 @@ namespace Excel2Unity.Source.CSharp
             {
                 Common.Utility.Logger.Log("[{0}] FiterRowData error, column:{1}, flag:{2}", name, column, flag);
                 throw e;
+            }
+        }
+
+        private void CheckSourceData(System.Data.DataTable data)
+        {
+            int minRowCount = Define.UserDefine.global.excel.startIndex + 1;
+            int minColumnCount = 1;
+
+            int rowCount = null == data.Rows ? 0 : data.Rows.Count;
+            if (rowCount < minRowCount)
+            {
+                
+                throw new Exception(string.Format("[{0}] data is error, the data row count is {1}, min row count must be {2}.", name, rowCount, minRowCount));
+            }
+
+            int columnCount = null == data.Columns ? 0 : data.Columns.Count;
+            if (columnCount < minColumnCount)
+            {
+
+                throw new Exception(string.Format("[{0}] data is error, the data column count is {1}, min column count must be {2}.", name, columnCount, minColumnCount));
+            }
+        }
+
+        private void CheckObjectKey(CSObjectData objectData, int index)
+        {
+            string key = objectData.key;
+            if (string.IsNullOrEmpty(key))
+            {
+                throw new Exception(string.Format("[{0}] data had null key, row index is {1}.", name, index));
+            }
+
+            foreach (var item in objectDatas)
+            {
+                if (item.key == key)
+                {
+                    throw new Exception(string.Format("[{0}] data had repeated key : {1}, row index is {2} and {3}.", name, key, item.index, index));
+                }
             }
         }
 

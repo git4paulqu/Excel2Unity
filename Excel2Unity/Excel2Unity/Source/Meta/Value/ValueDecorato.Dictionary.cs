@@ -35,7 +35,7 @@ namespace Excel2Unity.Source.Meta.Value
             }
             catch (Exception e)
             {
-                throw new Exception("try get map value is error, " + e.ToString());
+                throw new Exception("try get map value is error, " + e.Message.ToString());
             }
         }
 

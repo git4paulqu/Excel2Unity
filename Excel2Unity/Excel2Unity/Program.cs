@@ -25,7 +25,7 @@ namespace Excel2Unity
             catch (Exception e)
             {
                 success = false;
-                Source.Common.Utility.Logger.Log(e.ToString());
+                Source.Common.Utility.Logger.Log(e.Message.ToString());
             }
             finally
             {

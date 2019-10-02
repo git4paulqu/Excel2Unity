@@ -39,7 +39,8 @@
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>3rd\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
-    <Reference Include="protobuf-net">
+    <Reference Include="protobuf-net, Version=1.0.7214.589, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>3rd\protobuf-net.dll</HintPath>
     </Reference>
     <Reference Include="System" />

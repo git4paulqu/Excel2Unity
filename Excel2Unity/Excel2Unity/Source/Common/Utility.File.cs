@@ -161,8 +161,8 @@ namespace Excel2Unity.Source.Common
 
             public static void RecursionFileExecute(string path, string expandName, FileExecuteHandle handle)
             {
-                string[] allUIPrefabName = Directory.GetFiles(path);
-                foreach (var item in allUIPrefabName)
+                string[] files = Directory.GetFiles(path);
+                foreach (var item in files)
                 {
                     try
                     {
@@ -180,7 +180,8 @@ namespace Excel2Unity.Source.Common
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine(("RecursionFileExecute Error :" + item + " Exception:" + e.ToString()));
+                        Console.WriteLine(("RecursionFileExecute Error :" + item + " Exception:" + e.ToString() + "\r\n"));
+                        throw e;
                     }
                 }
 
@@ -202,8 +203,8 @@ namespace Excel2Unity.Source.Common
 
             static void RecursionFind(List<string> list, string path, string[] expandNames)
             {
-                string[] allUIPrefabName = Directory.GetFiles(path);
-                foreach (var item in allUIPrefabName)
+                string[] files = Directory.GetFiles(path);
+                foreach (var item in files)
                 {
                     if (ExpandFilter(item, expandNames))
                     {

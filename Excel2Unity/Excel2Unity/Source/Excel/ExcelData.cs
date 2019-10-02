@@ -7,7 +7,7 @@ namespace Excel2Unity.Source.Excel
     {
         public ExcelData(System.Data.DataTable data)
         {
-            name = Regex.Match(data.TableName, "^[a-z]*", RegexOptions.IgnoreCase).Value;
+            name = Regex.Match(data.TableName, "^[A-Za-z0-9]+", RegexOptions.IgnoreCase).Value;
             Common.Utility.Asserter.AssertStringNotNull(name, string.Format("excel sheet name [0] is eroor.", data.TableName));
 
             this.data = data;

@@ -33,11 +33,27 @@ namespace Excel2Unity.Source.Excel
                         foreach (System.Data.DataTable item in result.Tables)
                         {
                             ExcelData excelData = new ExcelData(item);
+                            if (ContainsObject(excelData))
+                            {
+                                throw new System.Exception(string.Format("[{0}] excel data is already exist.", excelData.name));
+                            }
                             datas.Add(excelData);
                         }
                     }
                 }
             });
+        }
+
+        private static bool ContainsObject(ExcelData data)
+        {
+            foreach (var item in datas)
+            {
+                if (item.name == data.name)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public static List<ExcelData> datas { get; private set; }

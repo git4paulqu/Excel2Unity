@@ -28,7 +28,7 @@ namespace Excel2Unity.Source.Meta.Type
             }
             catch (Exception e)
             {
-                throw new Exception(string.Format("parse type is error, type is {0}, error is {2}", type, e.Message));
+                throw new Exception(string.Format("parse type is error, type is {0}, error is {1}", type, e.Message));
             }
         }
 
