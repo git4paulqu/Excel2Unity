@@ -18,7 +18,7 @@
 2. List最多支持两层嵌套，eg:[[int]] 等于c#中的类型List<List<int>>, 注意目前支持扩展的的类型，最多支持一层嵌套,例如[Vector3]
 3. Dictionary中的key为int/string, value类型如果是List, 那面List子类型只支持基本int/float/string/bool, value类型不支持字典
 4. 忽略类型以@(config文件配置)开头的列数据
-5，第0列为Key, 类型为Int
+5. 第0列为Key, 类型为Int(非常重要)
 
 ### 读取规则
 `T data = DataTable.DataTableManager.Instance.TryGetValue<T>(id);`
