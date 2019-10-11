@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Excel2Unity.Source.Define
 {
     public class UserDefine : IDefine
     {
-        public static bool Initialize()
+        public static bool Initialize(string[] args)
         {
             try
             {
@@ -13,6 +14,7 @@ namespace Excel2Unity.Source.Define
 
                 global = LitJson.JsonMapper.ToObject<Source.Define.UserDefine>(json);
                 global.path.Initialize();
+                ReorientatePath(args);
 
                 global.readerTemplete = Common.Utility.File.ReadStringByFile(Define.PathDefine.readerTempletePath);
                 Source.Common.Utility.Asserter.AssertStringNotNull(json, "[user define] the readerTemplete can not be null.");
@@ -40,6 +42,35 @@ namespace Excel2Unity.Source.Define
             }
 
             return true;
+        }
+
+        private static void ReorientatePath(string[] args)
+        {
+            List<string> inputs = new List<string>();
+
+            foreach (string item in args)
+            {
+                if (item.StartsWith("-i:"))
+                {
+                    inputs.Add(item.Substring(3));
+                }
+
+                if (item.StartsWith("-ocs:"))
+                {
+                    global.path.outputCSPath = item.Substring(5);
+                }
+
+                if (item.StartsWith("-obin:"))
+                {
+                    global.path.outputBinPath = item.Substring(6);
+                }
+
+                if (item.StartsWith("-n:"))
+                {
+                    global.nameSpace = item.Substring(3);
+                }
+            }
+            global.path.excelSourcePath = inputs;
         }
 
         public string nameSpace { get; set; }

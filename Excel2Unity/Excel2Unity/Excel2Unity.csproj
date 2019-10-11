@@ -89,7 +89,7 @@
     <Compile Include="Source\Excel\ExcelData.cs" />
     <Compile Include="Source\Excel\FileReader.cs" />
     <Compile Include="Source\FileCopyer\FileCopyer.cs" />
-    <Compile Include="Source\Genarator.cs" />
+    <Compile Include="Source\Generator.cs" />
     <Compile Include="Source\Meta\Type\TypeDecorator.Bool.cs" />
     <Compile Include="Source\Meta\Type\TypeDecorator.Color.cs" />
     <Compile Include="Source\Meta\Type\TypeDecorator.Dictionary.cs" />

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Excel2Unity
 {
@@ -16,10 +13,10 @@ namespace Excel2Unity
             sw.Start();
             try
             {
-                if (!Source.Define.UserDefine.Initialize())
+                if (!Source.Define.UserDefine.Initialize(args))
                     return;
 
-                Source.Genarator.Gen();
+                Source.Generator.Gen();
                 success = true;
             }
             catch (Exception e)
