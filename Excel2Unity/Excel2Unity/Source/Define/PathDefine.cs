@@ -25,7 +25,7 @@ namespace Excel2Unity.Source.Define
 
         private string FormatWorkDir(string relativelyPath)
         {
-            return string.Format("{0}/{1}", workPath, relativelyPath);
+            return string.Format("{0}{1}", workPath, relativelyPath);
         }
 
         public string tempRootPath { get; private set; }
@@ -41,7 +41,7 @@ namespace Excel2Unity.Source.Define
         #region static path
         public static string configJsonFile {
             get {
-                return string.Format("{0}/config", workPath);
+                return string.Format("{0}config", workPath);
             }
         }
 
@@ -49,7 +49,7 @@ namespace Excel2Unity.Source.Define
         {
             get
             {
-                return string.Format("{0}/libs", workPath);
+                return string.Format("{0}libs", workPath);
             }
         }
 
@@ -57,7 +57,7 @@ namespace Excel2Unity.Source.Define
         {
             get
             {
-                return string.Format("{0}/templete/reader.templete", workPath);
+                return string.Format("{0}templete/reader.templete", workPath);
             }
         }
 
@@ -65,11 +65,11 @@ namespace Excel2Unity.Source.Define
         {
             get
             {
-                return string.Format("{0}/templete/manager.templete", workPath);
+                return string.Format("{0}templete/manager.templete", workPath);
             }
         }
 
-        public static string workPath = Environment.CurrentDirectory;
+        public static string workPath = System.AppDomain.CurrentDomain.BaseDirectory;
         #endregion
     }
 }

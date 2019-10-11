@@ -183,7 +183,9 @@ namespace Excel2Unity.Source.CSharp
 
         protected override void OnCompilerParameters(ref CompilerParameters param)
         {
-            param.ReferencedAssemblies.Add("protobuf-net.dll");
+            string protobuflib = Define.PathDefine.workPath + "protobuf-net.dll";
+            Utility.Logger.Log("protobuflib: {0}", protobuflib);
+            param.ReferencedAssemblies.Add(protobuflib);
         }
 
         protected override byte[] Serialize(object instance)
